@@ -1,0 +1,491 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>پنل مدیریت | SAHAND PET PACKAGING</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  .brand-mark {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #c5a56a;
+  color: #c5a56a;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: 800;
+  margin-left: 10px;
+}
+:root {
+  --green:#123d30;
+  --green2:#1d5945;
+  --gold:#c5a56a;
+  --cream:#f7f5ef;
+  --white:#fff;
+  --text:#25352e;
+  --muted:#758078;
+  --border:#e8e5dc;
+  --red:#a63e35;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  font-family:'Vazirmatn',Tahoma,sans-serif;
+  background:var(--cream);
+  color:var(--text);
+}
+button,input,select { font:inherit; }
+header {
+  background:var(--green);
+  color:white;
+  padding:18px 4%;
+  border-bottom:3px solid var(--gold);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+.brand { font-size:18px; font-weight:800; }
+.brand small { display:block; color:#dfc99e; font-size:10px; letter-spacing:2px; }
+.container { width:min(1180px,94%); margin:30px auto; }
+.panel {
+  background:white;
+  border:1px solid var(--border);
+  border-radius:9px;
+  padding:24px;
+  margin-bottom:22px;
+  box-shadow:0 5px 20px #18372c08;
+}
+h2 { color:var(--green); margin-top:0; font-size:21px; }
+h3 { color:var(--green); }
+label { display:block; font-size:13px; font-weight:700; margin-bottom:6px; }
+input,select {
+  width:100%;
+  border:1px solid #dddcd4;
+  border-radius:5px;
+  padding:11px;
+  background:white;
+  outline:none;
+}
+input:focus,select:focus { border-color:var(--gold); }
+.btn {
+  border:0;
+  border-radius:5px;
+  padding:10px 18px;
+  cursor:pointer;
+  font-weight:700;
+}
+.btn-gold { background:var(--gold); color:#18372c; }
+.btn-green { background:var(--green); color:white; }
+.btn-red { background:var(--red); color:white; }
+.btn:hover { opacity:.9; }
+.login {
+  max-width:420px;
+  margin:80px auto;
+  text-align:center;
+}
+.login input { margin:12px 0; }
+.hidden { display:none !important; }
+.topline {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.stats {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin-bottom:22px;
+}
+.stat {
+  background:white;
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:18px;
+}
+.stat span { color:var(--muted); font-size:13px; }
+.stat strong { display:block; color:var(--green); font-size:25px; margin-top:5px; }
+.price-grid {
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:12px;
+}
+.price-item {
+  border:1px solid var(--border);
+  padding:13px;
+  border-radius:7px;
+}
+.price-item strong { display:block; margin-bottom:8px; color:var(--green); }
+.price-item .btn { width:100%; margin-top:8px; }
+.table-wrap { overflow-x:auto; }
+table { width:100%; border-collapse:collapse; min-width:850px; }
+th,td {
+  padding:12px 10px;
+  text-align:right;
+  border-bottom:1px solid var(--border);
+  font-size:13px;
+  vertical-align:middle;
+}
+th { color:var(--green); background:#f8f7f2; }
+.status-select { min-width:155px; }
+.order-details {
+  margin-top:8px;
+  padding:12px;
+  background:#f8f7f2;
+  border-radius:5px;
+  line-height:2;
+  white-space:pre-wrap;
+}
+.empty { color:var(--muted); text-align:center; padding:25px; }
+.message { margin-top:12px; font-size:13px; color:var(--green2); }
+.warning {
+  background:#fff8e9;
+  border-right:4px solid var(--gold);
+  padding:13px;
+  font-size:13px;
+  margin-bottom:20px;
+}
+footer { text-align:center; padding:20px; color:var(--muted); font-size:12px; }
+@media(max-width:850px) {
+  .price-grid { grid-template-columns:repeat(2,1fr); }
+  .stats { grid-template-columns:repeat(2,1fr); }
+}
+@media(max-width:480px) {
+  .price-grid { grid-template-columns:1fr; }
+  .panel { padding:16px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="brand">
+  <span class="brand-mark">S</span>
+  <div>
+    سهند | پنل مدیریت
+    <small>SAHAND PET PACKAGING</small>
+  </div>
+</div>
+  <button id="logoutBtn" class="btn btn-gold hidden" type="button">خروج از پنل</button>
+</header>
+
+<main class="container">
+  <section id="loginPanel" class="panel login">
+    <h2>ورود فروشنده</h2>
+    <p style="color:var(--muted);font-size:13px">برای مدیریت محصولات و سفارش‌ها وارد شوید.</p>
+    <form id="loginForm">
+      <input id="password" type="password" placeholder="رمز عبور" required autocomplete="current-password">
+      <button class="btn btn-gold" style="width:100%" type="submit">ورود به پنل</button>
+      <div id="loginMessage" class="message"></div>
+    </form>
+  </section>
+
+  <section id="dashboard" class="hidden">
+    <div class="warning">
+      توجه: این پنل نسخه آزمایشی محلی است. رمز عبور داخل کد قرار دارد و برای استفاده واقعی روی اینترنت امن نیست. اطلاعات این نسخه فقط در همین مرورگر و دستگاه ذخیره می‌شود.
+    </div>
+
+    <div class="topline">
+      <h2>مدیریت فروش سهند</h2>
+      <span id="today" style="font-size:13px;color:var(--muted)"></span>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><span>کل سفارش‌ها</span><strong id="totalOrders">۰</strong></div>
+      <div class="stat"><span>سفارش‌های جدید</span><strong id="newOrders">۰</strong></div>
+      <div class="stat"><span>سفارش‌های تأییدشده</span><strong id="confirmedOrders">۰</strong></div>
+      <div class="stat"><span>سفارش‌های تحویل‌شده</span><strong id="deliveredOrders">۰</strong></div>
+    </div>
+
+    <section class="panel">
+      <h2>مدیریت قیمت محصولات</h2>
+      <p style="color:var(--muted);font-size:13px">
+        قیمت را به تومان وارد کنید. اگر قیمت خالی باشد، مشتری عبارت «استعلام قیمت» را مشاهده می‌کند.
+      </p>
+      <div class="price-grid" id="priceGrid"></div>
+      <div id="priceMessage" class="message"></div>
+    </section>
+
+    <section class="panel">
+      <div class="topline">
+        <h2>مدیریت سفارش‌های مشتریان</h2>
+        <button id="refreshBtn" class="btn btn-green" type="button">به‌روزرسانی</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>شماره سفارش</th>
+              <th>مشتری</th>
+              <th>تماس</th>
+              <th>محصول</th>
+              <th>تعداد</th>
+              <th>مبلغ</th>
+              <th>تاریخ</th>
+              <th>وضعیت سفارش</th>
+              <th>جزئیات</th>
+            </tr>
+          </thead>
+          <tbody id="ordersBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </section>
+</main>
+
+<footer>SAHAND PET PACKAGING | Transparent Packaging, Lasting Trust</footer>
+
+<script>
+const DEMO_PASSWORD = "1234";
+
+const defaultProducts = [
+  {id:"p6",eggs:6,image:"images/product-6.jpg",price:""},
+  {id:"p9",eggs:9,image:"images/product-9.jpg",price:""},
+  {id:"p12",eggs:12,image:"images/product-12.jpg",price:""},
+  {id:"p15",eggs:15,image:"images/product-15.jpg",price:""},
+  {id:"p30",eggs:30,image:"images/product-30.jpg",price:""}
+];
+
+const statuses = [
+  ["new","جدید"],
+  ["confirmed","تأییدشده"],
+  ["preparing","در حال آماده‌سازی"],
+  ["ready","آماده ارسال"],
+  ["delivered","تحویل‌شده"],
+  ["rejected","ردشده"]
+];
+
+function readStore(key,fallback) {
+  try {
+    const value = JSON.parse(localStorage.getItem(key));
+    return value ?? fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function getProducts() {
+  const saved = readStore("petProducts",null);
+  if (!Array.isArray(saved)) return defaultProducts.map(p=>({...p}));
+  return defaultProducts.map(p=>{
+    const match=saved.find(x=>x.id===p.id);
+    return match ? {...p,...match} : {...p};
+  });
+}
+
+function saveProducts(products) {
+  localStorage.setItem("petProducts",JSON.stringify(products));
+}
+
+function getOrders() {
+  const orders=readStore("petOrders",[]);
+  return Array.isArray(orders) ? orders : [];
+}
+
+function money(value) {
+  return Number(value).toLocaleString("en-US");
+}
+
+function safeText(value) {
+  return String(value ?? "").replace(/[&<>"']/g,char=>({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  }[char]));
+}
+
+function showDashboard() {
+  document.getElementById("loginPanel").classList.add("hidden");
+  document.getElementById("dashboard").classList.remove("hidden");
+  document.getElementById("logoutBtn").classList.remove("hidden");
+  document.getElementById("today").textContent =
+    "امروز: "+new Date().toLocaleDateString("fa-IR");
+  renderPrices();
+  renderOrders();
+}
+
+document.getElementById("loginForm").addEventListener("submit",event=>{
+  event.preventDefault();
+  const entered=document.getElementById("password").value;
+  if(entered===DEMO_PASSWORD) {
+    sessionStorage.setItem("sahandAdminLoggedIn","yes");
+    document.getElementById("loginMessage").textContent="";
+    showDashboard();
+  } else {
+    document.getElementById("loginMessage").textContent="رمز عبور صحیح نیست.";
+  }
+});
+
+document.getElementById("logoutBtn").addEventListener("click",()=>{
+  sessionStorage.removeItem("sahandAdminLoggedIn");
+  document.getElementById("dashboard").classList.add("hidden");
+  document.getElementById("logoutBtn").classList.add("hidden");
+  document.getElementById("loginPanel").classList.remove("hidden");
+  document.getElementById("password").value="";
+});
+
+function renderPrices() {
+  const grid=document.getElementById("priceGrid");
+  grid.replaceChildren();
+
+  getProducts().forEach(product=>{
+    const item=document.createElement("div");
+    item.className="price-item";
+
+    const title=document.createElement("strong");
+    title.textContent=`ظرف ${product.eggs} عددی`;
+
+    const label=document.createElement("label");
+    label.textContent="قیمت هر عدد (تومان)";
+
+    const input=document.createElement("input");
+    input.type="number";
+    input.min="0";
+    input.step="1";
+    input.placeholder="مثلاً ۱۵۰۰۰";
+    input.value=product.price ?? "";
+    input.id="price-"+product.id;
+
+    const save=document.createElement("button");
+    save.type="button";
+    save.className="btn btn-green";
+    save.textContent="ذخیره قیمت";
+    save.addEventListener("click",()=>{
+      const value=input.value.trim();
+      if(value!=="" && (!Number.isFinite(Number(value)) || Number(value)<1)) {
+        document.getElementById("priceMessage").textContent="لطفاً قیمت معتبر وارد کنید.";
+        return;
+      }
+      const products=getProducts();
+      const target=products.find(p=>p.id===product.id);
+      if(target) target.price=value==="" ? "" : String(Math.floor(Number(value)));
+      saveProducts(products);
+      document.getElementById("priceMessage").textContent="قیمت محصول ذخیره شد.";
+      renderPrices();
+    });
+
+    const clear=document.createElement("button");
+    clear.type="button";
+    clear.className="btn btn-red";
+    clear.textContent="حذف قیمت";
+    clear.style.marginTop="6px";
+    clear.addEventListener("click",()=>{
+      const products=getProducts();
+      const target=products.find(p=>p.id===product.id);
+      if(target) target.price="";
+      saveProducts(products);
+      document.getElementById("priceMessage").textContent="قیمت حذف شد؛ محصول با وضعیت استعلام قیمت نمایش داده می‌شود.";
+      renderPrices();
+    });
+
+    item.append(title,label,input,save,clear);
+    grid.append(item);
+  });
+}
+
+function renderOrders() {
+  const orders=getOrders();
+  const body=document.getElementById("ordersBody");
+  body.replaceChildren();
+
+  document.getElementById("totalOrders").textContent=orders.length;
+  document.getElementById("newOrders").textContent=orders.filter(o=>o.status==="new").length;
+  document.getElementById("confirmedOrders").textContent=orders.filter(o=>o.status==="confirmed").length;
+  document.getElementById("deliveredOrders").textContent=orders.filter(o=>o.status==="delivered").length;
+
+  if(orders.length===0) {
+    const row=document.createElement("tr");
+    const cell=document.createElement("td");
+    cell.colSpan=9;
+    cell.className="empty";
+    cell.textContent="هنوز سفارشی ثبت نشده است.";
+    row.append(cell);
+    body.append(row);
+    return;
+  }
+
+  [...orders].reverse().forEach(order=>{
+    const row=document.createElement("tr");
+    const date=order.createdAt ? new Date(order.createdAt).toLocaleString("fa-IR") : "—";
+    const amount=order.total==null ? "استعلام قیمت" : money(order.total)+" تومان";
+
+    const cells=[
+      order.id,
+      order.customer,
+      order.phone,
+      order.product,
+      order.quantity,
+      amount,
+      date
+    ];
+
+    cells.forEach(value=>{
+      const cell=document.createElement("td");
+      cell.textContent=String(value ?? "—");
+      row.append(cell);
+    });
+
+    const statusCell=document.createElement("td");
+    const select=document.createElement("select");
+    select.className="status-select";
+    statuses.forEach(([value,label])=>{
+      const option=document.createElement("option");
+      option.value=value;
+      option.textContent=label;
+      select.append(option);
+    });
+    select.value=statuses.some(s=>s[0]===order.status) ? order.status : "new";
+    select.addEventListener("change",()=>{
+      const all=getOrders();
+      const target=all.find(o=>o.id===order.id);
+      if(target) {
+        target.status=select.value;
+        localStorage.setItem("petOrders",JSON.stringify(all));
+        renderOrders();
+      }
+    });
+    statusCell.append(select);
+    row.append(statusCell);
+
+    const detailCell=document.createElement("td");
+    const detailButton=document.createElement("button");
+    detailButton.type="button";
+    detailButton.className="btn btn-gold";
+    detailButton.textContent="مشاهده";
+    detailButton.addEventListener("click",()=>{
+      const detail=document.createElement("div");
+      detail.className="order-details";
+      detail.textContent=
+        "نام مشتری: "+(order.customer||"—")+"\n"+
+        "شماره تماس: "+(order.phone||"—")+"\n"+
+        "نشانی تحویل: "+(order.address||"—")+"\n"+
+        "توضیحات: "+(order.notes||"—")+"\n"+
+        "قیمت واحد: "+(order.unitPrice==null?"استعلام قیمت":money(order.unitPrice)+" تومان")+"\n"+
+        "مبلغ کل: "+amount;
+      const existing=detailCell.querySelector(".order-details");
+      if(existing) existing.remove();
+      else detailCell.append(detail);
+    });
+    detailCell.append(detailButton);
+    row.append(detailCell);
+    body.append(row);
+  });
+}
+
+document.getElementById("refreshBtn").addEventListener("click",()=>{
+  renderPrices();
+  renderOrders();
+});
+
+if(sessionStorage.getItem("sahandAdminLoggedIn")==="yes") {
+  showDashboard();
+}
+</script>
+</body>
+</html>

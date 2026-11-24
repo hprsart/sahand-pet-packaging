@@ -1,0 +1,499 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سهند | بسته‌بندی شفاف، اعتماد ماندگار</title>
+  <meta name="description" content="تولیدکننده ظروف شفاف PET بسته‌بندی تخم‌مرغ در سایزهای مختلف">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #123d30;
+      --green2: #1d5945;
+      --gold: #c5a56a;
+      --cream: #f7f5ef;
+      --white: #fff;
+      --text: #25352e;
+      --muted: #758078;
+      --border: #e8e5dc;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Vazirmatn', Tahoma, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.8;
+    }
+    button, input, select, textarea { font: inherit; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1160px, 92%); margin: auto; }
+    header {
+      background: var(--green);
+      color: white;
+      border-bottom: 2px solid var(--gold);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-mark {
+      width: 48px; height: 48px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      border-radius: 50%;
+      display: grid; place-items: center;
+      font-size: 24px; font-weight: 800;
+    }
+    .brand-name { font-size: 19px; font-weight: 800; line-height: 1.35; }
+    .brand-name small { display: block; font-size: 10px; letter-spacing: 2px; color: #dfc99e; }
+    nav { display: flex; gap: 24px; align-items: center; font-size: 14px; }
+    nav a:hover { color: #e2c58d; }
+    .lang-btn {
+      border: 1px solid var(--gold); color: white; background: transparent;
+      border-radius: 30px; padding: 8px 15px; cursor: pointer;
+    }
+    .hero {
+      background: linear-gradient(120deg, #10382c, #1b5743);
+      color: white;
+      padding: 85px 0 90px;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero:after {
+      content: ""; position: absolute; width: 430px; height: 430px;
+      border: 1px solid rgba(207,177,119,.22); border-radius: 50%;
+      left: -130px; top: -160px;
+    }
+    .hero-content { max-width: 720px; position: relative; z-index: 1; }
+    .eyebrow { color: #e0c58e; font-size: 13px; letter-spacing: 2px; }
+    h1 { font-size: clamp(32px, 5vw, 55px); line-height: 1.45; margin: 15px 0; }
+    .hero p { color: #e1e9e3; max-width: 620px; font-size: 17px; }
+    .gold-line { width: 75px; height: 3px; background: var(--gold); margin: 25px 0; }
+    .btn {
+      display: inline-block; border: 0; border-radius: 5px;
+      padding: 12px 25px; cursor: pointer; font-weight: 700;
+      transition: .2s;
+    }
+    .btn-gold { background: var(--gold); color: #18372c; }
+    .btn-gold:hover { background: #dfc28c; transform: translateY(-2px); }
+    .btn-outline { border: 1px solid var(--gold); color: white; margin-right: 8px; }
+    section { padding: 72px 0; }
+    .section-head { text-align: center; margin-bottom: 38px; }
+    .section-head span { color: #a7874d; font-size: 13px; font-weight: 700; }
+    .section-head h2 { color: var(--green); font-size: 30px; margin: 5px 0; }
+    .section-head p { color: var(--muted); margin: 0; }
+    .products { background: var(--cream); }
+    .product-grid {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px;
+    }
+    .product-card {
+      background: white; border: 1px solid var(--border);
+      border-radius: 9px; overflow: hidden; transition: .25s;
+    }
+    .product-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px #163c2d12; }
+    .product-card img {
+      width: 100%; height: 190px; object-fit: contain;
+      background: #fff; padding: 10px;
+    }
+    .product-info { padding: 15px; text-align: center; }
+    .product-info h3 { margin: 0 0 5px; color: var(--green); font-size: 17px; }
+    .price { color: #9a7941; font-weight: 700; margin: 7px 0 12px; }
+    .product-info .btn { width: 100%; padding: 9px; font-size: 13px; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 45px; align-items: center; }
+    .about-panel {
+      background: var(--green); color: white; padding: 35px;
+      border-right: 4px solid var(--gold); border-radius: 6px;
+    }
+    .about-panel h3 { color: #e2c58d; font-size: 23px; margin-top: 0; }
+    .about-panel p { color: #e2e9e4; }
+    .features { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 22px; }
+    .feature { border: 1px solid var(--border); padding: 16px; border-radius: 6px; }
+    .feature strong { color: var(--green); display: block; }
+    .order-section { background: var(--cream); }
+    .form-card {
+      max-width: 760px; margin: auto; background: white;
+      padding: 30px; border: 1px solid var(--border); border-radius: 9px;
+    }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field.full { grid-column: 1 / -1; }
+    label { font-size: 13px; font-weight: 700; color: var(--green); }
+    input, select, textarea {
+      width: 100%; padding: 12px; border: 1px solid #dddcd4;
+      border-radius: 5px; outline: none; background: #fff;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--gold); }
+    textarea { min-height: 90px; resize: vertical; }
+    .total-box {
+      background: #f6f3eb; padding: 13px 16px; border-radius: 5px;
+      color: var(--green); font-weight: 700; margin: 17px 0;
+    }
+    .track-card {
+      max-width: 650px; margin: auto; padding: 28px;
+      border: 1px solid var(--border); border-radius: 8px;
+    }
+    .track-row { display: flex; gap: 10px; }
+    .track-row input { flex: 1; min-width: 0; }
+    #trackResult, #orderResult { margin-top: 15px; }
+    .notice { padding: 14px; background: #f1f5f1; border-right: 3px solid var(--green2); border-radius: 4px; }
+    footer { background: #0d2e24; color: #dce5df; padding: 35px 0; text-align: center; }
+    footer strong { color: #dfc28c; }
+    footer p { margin: 5px 0; font-size: 13px; }
+    .footer-tag { color: #c5a56a; margin-top: 15px; }
+    @media(max-width: 950px) {
+      .product-grid { grid-template-columns: repeat(3, 1fr); }
+      nav { gap: 12px; }
+    }
+    @media(max-width: 650px) {
+      .nav { flex-wrap: wrap; padding: 12px 0; }
+      nav { order: 3; width: 100%; justify-content: space-between; font-size: 12px; }
+      .hero { padding: 60px 0; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .product-card img { height: 150px; }
+      .about-grid { grid-template-columns: 1fr; gap: 20px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .form-card { padding: 20px; }
+      .track-row { flex-direction: column; }
+    }
+    body.en { direction: ltr; }
+    body.en nav { direction: ltr; }
+    body.en .about-panel { border-right: 0; border-left: 4px solid var(--gold); }
+    body.en .notice { border-right: 0; border-left: 3px solid var(--green2); }
+    body.en .brand-name small { letter-spacing: 1px; }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#">
+      <div class="brand-mark">S</div>
+      <div class="brand-name">سهند<small>SAHAND PET PACKAGING</small></div>
+    </a>
+    <nav>
+      <a href="#home" data-fa="خانه" data-en="Home">خانه</a>
+      <a href="#products" data-fa="محصولات" data-en="Products">محصولات</a>
+      <a href="#about" data-fa="درباره ما" data-en="About Us">درباره ما</a>
+      <a href="#order" data-fa="ثبت سفارش" data-en="Order">ثبت سفارش</a>
+      <a href="#tracking" data-fa="پیگیری سفارش" data-en="Track Order">پیگیری سفارش</a>
+    </nav>
+    <button class="lang-btn" id="langBtn" type="button">English</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <div class="eyebrow" data-fa="کیفیت در تولید، اعتماد در بسته‌بندی" data-en="Quality in Production, Trust in Packaging">کیفیت در تولید، اعتماد در بسته‌بندی</div>
+        <h1 data-fa="بسته‌بندی شفاف، اعتماد ماندگار" data-en="Transparent Packaging, Lasting Trust">بسته‌بندی شفاف، اعتماد ماندگار</h1>
+        <div class="gold-line"></div>
+        <p data-fa="سهند، تولیدکننده ظروف شفاف PET بسته‌بندی تخم‌مرغ در سایزهای متنوع؛ همراه کسب‌وکار شما از تولید تا عرضه." data-en="Sahand produces clear PET egg packaging containers in a range of sizes, supporting your business from production to delivery.">سهند، تولیدکننده ظروف شفاف PET بسته‌بندی تخم‌مرغ در سایزهای متنوع؛ همراه کسب‌وکار شما از تولید تا عرضه.</p>
+        <a href="#products" class="btn btn-gold" data-fa="مشاهده محصولات" data-en="Explore Products">مشاهده محصولات</a>
+        <a href="#order" class="btn btn-outline" data-fa="ثبت سفارش" data-en="Place an Order">ثبت سفارش</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="products" id="products">
+    <div class="container">
+      <div class="section-head">
+        <span data-fa="محصولات سهند" data-en="SAHAND PRODUCTS">محصولات سهند</span>
+        <h2 data-fa="ظروف شفاف بسته‌بندی تخم‌مرغ" data-en="Clear PET Egg Containers">ظروف شفاف بسته‌بندی تخم‌مرغ</h2>
+        <p data-fa="انتخاب سایز مناسب برای نیاز کسب‌وکار شما" data-en="Choose the right size for your business">انتخاب سایز مناسب برای نیاز کسب‌وکار شما</p>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container about-grid">
+      <div>
+        <div class="eyebrow" style="color:#a7874d" data-fa="درباره سهند" data-en="ABOUT SAHAND">درباره سهند</div>
+        <h2 style="color:var(--green);font-size:30px" data-fa="ترکیب استحکام، شفافیت و کیفیت" data-en="Strength, Clarity and Quality">ترکیب استحکام، شفافیت و کیفیت</h2>
+        <p data-fa="سهند با الهام از استواری طبیعت، بر تولید بسته‌بندی‌های شفاف PET برای عرضه مطمئن و حرفه‌ای محصولات تمرکز دارد." data-en="Inspired by the strength of nature, Sahand focuses on clear PET packaging for reliable and professional product presentation.">سهند با الهام از استواری طبیعت، بر تولید بسته‌بندی‌های شفاف PET برای عرضه مطمئن و حرفه‌ای محصولات تمرکز دارد.</p>
+        <div class="features">
+          <div class="feature"><strong data-fa="شفافیت محصول" data-en="Product Clarity">شفافیت محصول</strong><span data-fa="نمایش بهتر محصول در بسته‌بندی" data-en="Better product visibility">نمایش بهتر محصول در بسته‌بندی</span></div>
+          <div class="feature"><strong data-fa="سایزبندی متنوع" data-en="Multiple Sizes">سایزبندی متنوع</strong><span data-fa="گزینه‌های متنوع برای مشتریان" data-en="Options for different needs">گزینه‌های متنوع برای مشتریان</span></div>
+          <div class="feature"><strong data-fa="طراحی کاربردی" data-en="Practical Design">طراحی کاربردی</strong><span data-fa="مناسب عرضه و بسته‌بندی" data-en="Made for packaging and display">مناسب عرضه و بسته‌بندی</span></div>
+          <div class="feature"><strong data-fa="ارتباط مستقیم" data-en="Direct Contact">ارتباط مستقیم</strong><span data-fa="ثبت سفارش و پیگیری آسان" data-en="Easy ordering and tracking">ثبت سفارش و پیگیری آسان</span></div>
+        </div>
+      </div>
+      <div class="about-panel">
+        <h3 data-fa="سهند؛ همراه مطمئن بسته‌بندی شما" data-en="SAHAND – Your Packaging Partner">سهند؛ همراه مطمئن بسته‌بندی شما</h3>
+        <p data-fa="هدف ما ارائه ظروف PET شفاف و کاربردی برای بسته‌بندی تخم‌مرغ است؛ محصولاتی که به عرضه منظم‌تر و نمایش بهتر کالا کمک می‌کنند." data-en="Our goal is to provide clear, practical PET egg containers that help present and package products professionally.">هدف ما ارائه ظروف PET شفاف و کاربردی برای بسته‌بندی تخم‌مرغ است؛ محصولاتی که به عرضه منظم‌تر و نمایش بهتر کالا کمک می‌کنند.</p>
+        <div class="gold-line"></div>
+        <strong data-fa="بسته‌بندی شفاف، اعتماد ماندگار" data-en="Transparent Packaging, Lasting Trust">بسته‌بندی شفاف، اعتماد ماندگار</strong>
+      </div>
+    </div>
+  </section>
+
+  <section class="order-section" id="order">
+    <div class="container">
+      <div class="section-head">
+        <span data-fa="همکاری با سهند" data-en="WORK WITH SAHAND">همکاری با سهند</span>
+        <h2 data-fa="ثبت سفارش" data-en="Place Your Order">ثبت سفارش</h2>
+        <p data-fa="اطلاعات سفارش خود را وارد کنید تا درخواست شما ثبت شود." data-en="Enter your order details to submit your request.">اطلاعات سفارش خود را وارد کنید تا درخواست شما ثبت شود.</p>
+      </div>
+      <form class="form-card" id="orderForm">
+        <div class="form-grid">
+          <div class="field">
+            <label data-fa="نام و نام خانوادگی" data-en="Full Name">نام و نام خانوادگی</label>
+            <input name="customer" required maxlength="100" autocomplete="name">
+          </div>
+          <div class="field">
+            <label data-fa="شماره تماس" data-en="Phone Number">شماره تماس</label>
+            <input name="phone" required inputmode="tel" maxlength="20" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label data-fa="انتخاب محصول" data-en="Select Product">انتخاب محصول</label>
+            <select name="productId" id="productSelect" required></select>
+          </div>
+          <div class="field">
+            <label data-fa="تعداد سفارش" data-en="Quantity">تعداد سفارش</label>
+            <input name="quantity" id="quantity" type="number" min="1" step="1" value="1" required>
+          </div>
+          <div class="field full">
+            <label data-fa="آدرس تحویل" data-en="Delivery Address">آدرس تحویل</label>
+            <textarea name="address" required maxlength="1000"></textarea>
+          </div>
+          <div class="field full">
+            <label data-fa="توضیحات (اختیاری)" data-en="Notes (Optional)">توضیحات (اختیاری)</label>
+            <textarea name="notes" maxlength="1000"></textarea>
+          </div>
+        </div>
+        <div class="total-box" id="totalBox">مبلغ سفارش: استعلام قیمت</div>
+        <button class="btn btn-gold" type="submit" data-fa="ثبت درخواست سفارش" data-en="Submit Order">ثبت درخواست سفارش</button>
+        <div id="orderResult" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+
+  <section id="tracking">
+    <div class="container">
+      <div class="section-head">
+        <span data-fa="پیگیری وضعیت" data-en="ORDER STATUS">پیگیری وضعیت</span>
+        <h2 data-fa="پیگیری سفارش" data-en="Track Your Order">پیگیری سفارش</h2>
+        <p data-fa="شماره سفارش و شماره تماس ثبت‌شده را وارد کنید." data-en="Enter your order number and registered phone number.">شماره سفارش و شماره تماس ثبت‌شده را وارد کنید.</p>
+      </div>
+      <form class="track-card" id="trackForm">
+        <div class="field">
+          <label data-fa="شماره سفارش" data-en="Order Number">شماره سفارش</label>
+          <input name="orderId" required placeholder="مثلاً SH123456789">
+        </div>
+        <div class="field" style="margin-top:14px">
+          <label data-fa="شماره تماس" data-en="Phone Number">شماره تماس</label>
+          <input name="phone" required inputmode="tel">
+        </div>
+        <button class="btn btn-gold" style="margin-top:18px" type="submit" data-fa="پیگیری" data-en="Track">پیگیری</button>
+        <div id="trackResult" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <strong>SAHAND PET PACKAGING</strong>
+    <p data-fa="تولیدکننده ظروف شفاف PET بسته‌بندی تخم‌مرغ" data-en="Clear PET Egg Packaging Manufacturer">تولیدکننده ظروف شفاف PET بسته‌بندی تخم‌مرغ</p>
+    <p data-fa="اطلاعات تماس و نشانی کارخانه به‌زودی درج خواهد شد." data-en="Factory contact details and address will be added soon.">اطلاعات تماس و نشانی کارخانه به‌زودی درج خواهد شد.</p>
+    <div class="footer-tag" data-fa="بسته‌بندی شفاف، اعتماد ماندگار" data-en="Transparent Packaging, Lasting Trust">بسته‌بندی شفاف، اعتماد ماندگار</div>
+  </div>
+</footer>
+
+<script>
+  const defaultProducts = [
+    {id:"p6", eggs:6, image:"images/product-6.jpg", price:""},
+    {id:"p9", eggs:9, image:"images/product-9.jpg", price:""},
+    {id:"p12", eggs:12, image:"images/product-12.jpg", price:""},
+    {id:"p15", eggs:15, image:"images/product-15.jpg", price:""},
+    {id:"p30", eggs:30, image:"images/product-30.jpg", price:""}
+  ];
+
+  const statusLabels = {
+    new: ["جدید", "New"],
+    confirmed: ["تأییدشده", "Confirmed"],
+    preparing: ["در حال آماده‌سازی", "Preparing"],
+    ready: ["آماده ارسال", "Ready for Dispatch"],
+    delivered: ["تحویل‌شده", "Delivered"],
+    rejected: ["ردشده", "Rejected"]
+  };
+
+  let isEnglish = false;
+  const readStore = (key, fallback) => {
+    try {
+      const value = JSON.parse(localStorage.getItem(key));
+      return value ?? fallback;
+    } catch { return fallback; }
+  };
+  function getProducts() {
+    const saved = readStore("petProducts", null);
+    if (!Array.isArray(saved)) return defaultProducts;
+    return defaultProducts.map(p => {
+      const match = saved.find(x => x.id === p.id);
+      return match ? {...p, ...match} : p;
+    });
+  }
+  function money(value) {
+    return Number(value).toLocaleString("en-US");
+  }
+  function renderProducts() {
+    const products = getProducts();
+    const grid = document.getElementById("productGrid");
+    const select = document.getElementById("productSelect");
+    grid.replaceChildren();
+    select.replaceChildren();
+
+    products.forEach(p => {
+      const priceAvailable = p.price !== "" && p.price !== null && Number(p.price) > 0;
+      const card = document.createElement("article");
+      card.className = "product-card";
+
+      const img = document.createElement("img");
+      img.src = p.image;
+      img.alt = isEnglish ? `${p.eggs} egg PET container` : `ظرف PET تخم‌مرغ ${p.eggs} عددی`;
+      img.onerror = () => {
+        img.style.display = "none";
+        const fallback = document.createElement("div");
+        fallback.style.cssText = "height:190px;display:grid;place-items:center;color:#758078;background:#f7f5ef;font-size:13px";
+        fallback.textContent = isEnglish ? "Product image" : "تصویر محصول";
+        card.insertBefore(fallback, card.firstChild);
+      };
+      const info = document.createElement("div");
+      info.className = "product-info";
+      const heading = document.createElement("h3");
+      heading.textContent = isEnglish ? `${p.eggs}-Egg Container` : `ظرف ${p.eggs} عددی تخم‌مرغ`;
+      const price = document.createElement("div");
+      price.className = "price";
+      price.textContent = priceAvailable
+        ? (isEnglish ? `${money(p.price)} toman` : `${money(p.price)} تومان`)
+        : (isEnglish ? "Price on request" : "استعلام قیمت");
+      const btn = document.createElement("button");
+      btn.className = "btn btn-gold";
+      btn.type = "button";
+      btn.textContent = isEnglish ? "Order this product" : "سفارش این محصول";
+      btn.addEventListener("click", () => {
+        select.value = p.id;
+        updateTotal();
+        document.getElementById("order").scrollIntoView({behavior:"smooth"});
+      });
+      info.append(heading, price, btn);
+      card.append(img, info);
+      grid.append(card);
+
+      const option = document.createElement("option");
+      option.value = p.id;
+      option.textContent = isEnglish ? `${p.eggs}-Egg Container` : `ظرف ${p.eggs} عددی`;
+      select.append(option);
+    });
+    updateTotal();
+  }
+
+  function updateTotal() {
+    const product = getProducts().find(p => p.id === document.getElementById("productSelect").value);
+    const quantity = Math.max(1, Number(document.getElementById("quantity").value) || 1);
+    const box = document.getElementById("totalBox");
+    if (!product || product.price === "" || Number(product.price) <= 0) {
+      box.textContent = isEnglish ? "Order total: Price on request" : "مبلغ سفارش: استعلام قیمت";
+      return;
+    }
+    const total = Number(product.price) * quantity;
+    box.textContent = isEnglish
+      ? `Estimated total: ${money(total)} toman`
+      : `مبلغ تقریبی سفارش: ${money(total)} تومان`;
+  }
+
+  document.getElementById("quantity").addEventListener("input", updateTotal);
+  document.getElementById("productSelect").addEventListener("change", updateTotal);
+
+  document.getElementById("orderForm").addEventListener("submit", event => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    const products = getProducts();
+    const product = products.find(p => p.id === data.get("productId"));
+    const quantity = Math.floor(Number(data.get("quantity")));
+    if (!product || !Number.isFinite(quantity) || quantity < 1) return;
+
+    const price = product.price !== "" && Number(product.price) > 0 ? Number(product.price) : null;
+    const order = {
+      id: "SH" + Date.now(),
+      customer: String(data.get("customer")).trim(),
+      phone: String(data.get("phone")).trim(),
+      productId: product.id,
+      product: product.eggs + " عددی",
+      quantity,
+      unitPrice: price,
+      total: price === null ? null : price * quantity,
+      address: String(data.get("address")).trim(),
+      notes: String(data.get("notes")).trim(),
+      status: "new",
+      createdAt: new Date().toISOString()
+    };
+    const orders = readStore("petOrders", []);
+    orders.push(order);
+    localStorage.setItem("petOrders", JSON.stringify(orders));
+
+    const result = document.getElementById("orderResult");
+    result.className = "notice";
+    result.textContent = isEnglish
+      ? `Your request was saved. Order number: ${order.id}. Please keep this number for tracking.`
+      : `درخواست شما ثبت شد. شماره سفارش: ${order.id} — این شماره را برای پیگیری نزد خود نگه دارید.`;
+    form.reset();
+    document.getElementById("quantity").value = 1;
+    renderProducts();
+  });
+
+  document.getElementById("trackForm").addEventListener("submit", event => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const orderId = String(data.get("orderId")).trim().toLowerCase();
+    const phone = String(data.get("phone")).replace(/\s/g, "");
+    const orders = readStore("petOrders", []);
+    const order = orders.find(o =>
+      String(o.id).toLowerCase() === orderId &&
+      String(o.phone).replace(/\s/g, "") === phone
+    );
+    const result = document.getElementById("trackResult");
+    result.className = "notice";
+    if (!order) {
+      result.textContent = isEnglish
+        ? "No matching order was found. Please check the order number and phone."
+        : "سفارشی با این شماره سفارش و تلفن پیدا نشد. لطفاً اطلاعات را بررسی کنید.";
+      return;
+    }
+    const status = statusLabels[order.status] || statusLabels.new;
+    const statusText = isEnglish ? status[1] : status[0];
+    result.textContent = isEnglish
+      ? `Order ${order.id} | Product: ${order.product} | Quantity: ${order.quantity} | Status: ${statusText}`
+      : `سفارش ${order.id} | محصول: ${order.product} | تعداد: ${order.quantity} | وضعیت: ${statusText}`;
+  });
+
+  document.getElementById("langBtn").addEventListener("click", () => {
+    isEnglish = !isEnglish;
+    document.documentElement.lang = isEnglish ? "en" : "fa";
+    document.documentElement.dir = isEnglish ? "ltr" : "rtl";
+    document.body.classList.toggle("en", isEnglish);
+    document.querySelectorAll("[data-fa]").forEach(el => {
+      el.textContent = isEnglish ? el.dataset.en : el.dataset.fa;
+    });
+    document.getElementById("langBtn").textContent = isEnglish ? "فارسی" : "English";
+    renderProducts();
+  });
+
+  renderProducts();
+</script>
+</body>
+</html>
